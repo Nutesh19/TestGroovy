@@ -23,4 +23,60 @@
         </dependency>
     </dependencies>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>bintray</id>
+            <name>Groovy Bintray</name>
+            <url>https://dl.bintray.com/groovy/maven</url>
+            <releases>
+                <!-- avoid automatic updates -->
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.gmavenplus</groupId>
+                    <artifactId>gmavenplus-plugin</artifactId>
+                    <version>2.1.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>execute</goal>
+                                <goal>addSources</goal>
+                                <goal>addTestSources</goal>
+                                <goal>generateStubs</goal>
+                                <goal>compile</goal>
+                                <goal>generateTestStubs</goal>
+                                <goal>compileTests</goal>
+                                <goal>removeStubs</goal>
+                                <goal>removeTestStubs</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-all</artifactId>
+                            <version>2.4.4</version>
+                            <scope>runtime</scope>
+                            <type>pom</type>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
